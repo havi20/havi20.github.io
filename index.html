@@ -161,8 +161,8 @@
                 img_bg: $('#background').val()
               };
               loadImages(sources, function(images) {
-                context.drawImage(imagesimg_bg, 0, 0, 620, 877);
-                context.drawImage(imagesimg, 30, 50, 560, 800);
+                context.drawImage(images.img_bg, 0, 0, 620, 877);
+                context.drawImage(images.img, 30, 50, 560, 800);
                 context.strokeStyle = $('#color_border').val();
                 context.lineWidth = 2;
                 context.strokeRect(30, 50, 560, 800);
