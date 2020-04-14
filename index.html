@@ -156,24 +156,25 @@
             sticker.src = $('#sticker').val();
             sticker.crossOrigin = "anonymous";
 
-            img_bg.onload = function() {
+            // img_bg.onload = function() {
+            //   context.drawImage(img_bg, 0, 0, 620, 877);
+            // };
+
+            img.onload = function() {
                 context.drawImage(img_bg, 0, 0, 620, 877);
-                img.onload = function() {
-                    //context.drawImage(img_bg, 0, 0, 620, 877);
-                    context.drawImage(img, 30, 50, 560, 800);
-                    context.strokeStyle = $('#color_border').val();
-                    context.lineWidth = 2;
-                    context.strokeRect(30, 50, 560, 800);
+                context.drawImage(img, 30, 50, 560, 800);
+                context.strokeStyle = $('#color_border').val();
+                context.lineWidth = 2;
+                context.strokeRect(30, 50, 560, 800);
 
-                    context.drawImage(sticker, $('#sticker_w').val(), $('#sticker_h').val(), sticker.width / $('#size_sticker').val(), sticker.height / $('#size_sticker').val());
-                    context.font = $('#size_title').val() + "px Pacifico";
-                    context.fillStyle = $('#color_title').val();
-                    context.fillText($('#title').val(), $('#title_w').val(), $('#title_h').val());
+                context.drawImage(sticker, $('#sticker_w').val(), $('#sticker_h').val(), sticker.width / $('#size_sticker').val(), sticker.height / $('#size_sticker').val());
+                context.font = $('#size_title').val() + "px Pacifico";
+                context.fillStyle = $('#color_title').val();
+                context.fillText($('#title').val(), $('#title_w').val(), $('#title_h').val());
 
-                    context.font = $('#size_ig').val() + "px Pacifico";
-                    context.fillStyle = $('#color_ig').val();
-                    context.fillText($('#ig').val(), $('#ig_w').val(), $('#ig_h').val());
-                };
+                context.font = $('#size_ig').val() + "px Pacifico";
+                context.fillStyle = $('#color_ig').val();
+                context.fillText($('#ig').val(), $('#ig_w').val(), $('#ig_h').val());
             };
         });
 
