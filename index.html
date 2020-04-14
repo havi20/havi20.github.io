@@ -152,10 +152,14 @@
         img.src = 'assets/paper/' + $('#paper_color').val() + '.jpg';
 
         sticker.src = $('#sticker').val();
-        sticker.crossOrigin="anonymous"
+        sticker.crossOrigin="anonymous";
+
+        img_bg.onload = function() {
+          context.drawImage(img_bg, 0, 0, 620, 877);
+        };
 
         img.onload = function() {
-          context.drawImage(img_bg, 0, 0, 620, 877);
+          //context.drawImage(img_bg, 0, 0, 620, 877);
           context.drawImage(img, 30, 50, 560, 800);
           context.strokeStyle = $('#color_border').val();
           context.lineWidth = 2; 
@@ -169,7 +173,7 @@
           context.font = $('#size_ig').val()+"px Pacifico";
           context.fillStyle = $('#color_ig').val();
           context.fillText($('#ig').val(), $('#ig_w').val(), $('#ig_h').val());
-        }
+        };
     });
     function download_image(){
         var canvas = document.getElementById('myCanvas');
