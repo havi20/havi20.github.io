@@ -144,17 +144,13 @@
             $('#canvasGroup').prepend('<canvas id="myCanvas" width="620px" height="877px" style="border: 1px solid #000;"></canvas>');
             var canvas = $('#myCanvas');
             var context = canvas.get(0).getContext("2d");
-            var img = new Image();
-            var sticker = new Image();
-            var img_bg = new Image();
-
-            sticker.crossOrigin = "anonymous";
-            sticker.src = $('#sticker').val();
 
             var sources = {
                 img: 'assets/paper/' + $('#paper_color').val() + '.jpg',
-                img_bg: $('#background').val()
+                img_bg: $('#background').val(),
+                sticker: $('#sticker').val()
             };
+
             loadImages(sources, function(images) {
                 context.drawImage(images.img_bg, 0, 0, 620, 877);
                 context.drawImage(images.img, 30, 50, 560, 800);
@@ -162,7 +158,7 @@
                 context.lineWidth = 2;
                 context.strokeRect(30, 50, 560, 800);
 
-                context.drawImage(sticker, $('#sticker_w').val(), $('#sticker_h').val(), sticker.width / $('#size_sticker').val(), sticker.height / $('#size_sticker').val());
+                context.drawImage(images.sticker, $('#sticker_w').val(), $('#sticker_h').val(), images.sticker.width / $('#size_sticker').val(), images.sticker.height / $('#size_sticker').val());
                 context.font = $('#size_title').val() + "px Pacifico";
                 context.fillStyle = $('#color_title').val();
                 context.fillText($('#title').val(), $('#title_w').val(), $('#title_h').val());
