@@ -148,17 +148,21 @@
             var sticker = new Image();
             var img_bg = new Image();
 
-            img_bg.src = $('#background').val();
-            img_bg.crossOrigin = "anonymous"
+           // img_bg.src = $('#background').val();
+            //img_bg.crossOrigin = "anonymous"
 
-            img.src = 'assets/paper/' + $('#paper_color').val() + '.jpg';
+            //img.src = 'assets/paper/' + $('#paper_color').val() + '.jpg';
 
             sticker.src = $('#sticker').val();
             sticker.crossOrigin = "anonymous";
 
-            img.onload = function() {
-                context.drawImage(img_bg, 0, 0, 620, 877);
-                context.drawImage(img, 30, 50, 560, 800);
+            var sources = {
+                img: 'assets/paper/' + $('#paper_color').val() + '.jpg',
+                img_bg: $('#background').val()
+              };
+              loadImages(sources, function(images) {
+                context.drawImage(imagesimg_bg, 0, 0, 620, 877);
+                context.drawImage(imagesimg, 30, 50, 560, 800);
                 context.strokeStyle = $('#color_border').val();
                 context.lineWidth = 2;
                 context.strokeRect(30, 50, 560, 800);
@@ -171,7 +175,10 @@
                 context.font = $('#size_ig').val() + "px Pacifico";
                 context.fillStyle = $('#color_ig').val();
                 context.fillText($('#ig').val(), $('#ig_w').val(), $('#ig_h').val());
-            };
+              });
+            // img.onload = function() {
+                
+            // };
         });
 
         function download_image() {
@@ -182,6 +189,24 @@
             link.href = image;
             link.click();
         }
+        function loadImages(sources, callback) {
+            var images = {};
+            var loadedImages = 0;
+            var numImages = 0;
+            for(var src in sources) {
+              numImages++;
+            }
+            for(var src in sources) {
+              images[src] = new Image();
+              images[src].onload = function() {
+                if(++loadedImages >= numImages) {
+                  callback(images);
+                }
+              };
+              images[src].src = sources[src];
+              images[src].crossOrigin = "anonymous";
+            }
+          }
     </script>
 </body>
 
