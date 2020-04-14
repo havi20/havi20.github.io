@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Take Notes Paper</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/3.2.0/js/bootstrap-colorpicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-colorpicker.min.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#" style="font-family: 'Pacifico'; color: #fd8888; font-size: 25px">Take Notes Paper</a>
+        <a href="https://www.instagram.com/studywithmeomeo/" target="_blank" style="color: #fd8888;text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"><i class="fa fa-instagram" style="font-size: 20px"></i> <b> studywithmeomeo</b></a>
+      </div>
+    </nav>
+    <br>
+    <div role="main" class="container p-0">
+        <div class="row">
+            <div class="col-md-6">
+                <form id="apply">
+                    <div class="form-group">
+                        <label><b style="font-family: 'Pacifico'; color: #fd8888;">Title</b></label>
+                        <input type="text" class="form-control" name="title" id="title" value="Notes">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                          <label for="title_w"><i>X</i></label>
+                          <input type="number" class="form-control" id="title_w" value="241">
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="title_h"><i>Y</i></label>
+                          <input type="number" class="form-control" id="title_h" value="121">
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="size_title"><i>Size</i></label>
+                          <input type="number" class="form-control" id="size_title" value="64">
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="size_title"><i>Color</i></label>
+                          <input id="color_title" type="text" class="color form-control input-lg" value="#fd8888"/>
+                        </div>
+                      </div>
+                      <br>
+                    <div class="form-group">
+                        <label><b style="font-family: 'Pacifico'; color: #fd8888;">Text 1</b></label>
+                        <input type="text" class="form-control" name="ig" id="ig" value="@studywithmeomeo">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                          <label for="ig_w"><i>X</i></label>
+                          <input type="number" class="form-control" id="ig_w" value="476">
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="ig_h"><i>Y</i></label>
+                          <input type="number" class="form-control" id="ig_h" value="128">
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="size_ig"><i>Size</i></label>
+                          <input type="number" class="form-control" id="size_ig" value="13">
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="size_title"><i>Color</i></label>
+                          <input id="color_ig" type="text" class="color form-control input-lg" value="#fd8888"/>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-row">
+                        <div class="form-group col-md-8">
+                            <label><b style="font-family: 'Pacifico'; color: #fd8888;">Paper Style</b></label>
+                              <select class="form-control" id="paper_color">
+                                <option value="pink">Square Pink</option>
+                                <option value="black">Square Black</option>
+                                <option value="orange">Square Orange</option>
+                                <option value="blue">Square Blue</option>
+                                <option value="green">Square Green</option>
+                                <option value="red">Square Red</option>
+                                <option value="dot">Dot</option>
+                                <option value="horizontal">Horizontal</option>
+                              </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="size_title"><i>Color Border</i></label>
+                          <input id="color_border" type="text" class="color form-control input-lg" value="#fff"/>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                          <label><b style="font-family: 'Pacifico'; color: #fd8888;">Sticker</b> (URL Image PNG)</label>
+                          <input type="text" id="sticker" value="https://i.imgur.com/WSJD7hQ.png" class="form-control">
+                      </div>
+                      <div class="form-row">
+                        <div class="form-group col-md-3">
+                          <label for="ig_w"><i>X</i></label>
+                          <input type="number" class="form-control" id="sticker_w" value="0">
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="ig_h"><i>Y</i></label>
+                          <input type="number" class="form-control" id="sticker_h" value="25">
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="size_ig"><i>Size</i></label>
+                          <input type="number" class="form-control" id="size_sticker" value="3">
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                          <label><b style="font-family: 'Pacifico'; color: #fd8888;">Image Background</b></label>
+                          <input type="text" id="background" value="https://i.imgur.com/s7nNktN.jpg" class="form-control">
+                      </div>
+                </form>
+                <button onclick="download_image()" class="btn btn-danger">Download Paper</button>
+                <i>(Nếu không nhấn download được. Click chuột phải vào ảnh preview để lưu)</i>
+            </div>
+            <div class="col-md-6" id="canvasGroup"> 
+                <canvas id="myCanvas" width="602px" height="877px" style="border: 1px solid #000;"></canvas>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+    $(function () {
+        $('.color').colorpicker();
+    });
+
+    $('#apply').change(function(){
+        $('#myCanvas').remove();
+        $('#canvasGroup').prepend('<canvas id="myCanvas" width="620px" height="877px" style="border: 1px solid #000;"></canvas>');
+        var canvas = $('#myCanvas');
+        var context = canvas.get(0).getContext("2d");
+        var img = new Image();
+        var sticker = new Image();
+        var img_bg = new Image();
+        img_bg.src = $('#background').val();
+        img.src = 'assets/paper/' + $('#paper_color').val() + '.jpg';
+        sticker.src = $('#sticker').val();
+
+        img.onload = function() {
+          context.drawImage(img_bg, 0, 0, 620, 877);
+          context.drawImage(img, 30, 50, 560, 800);
+          context.strokeStyle = $('#color_border').val();
+          context.lineWidth = 2; 
+          context.strokeRect(30, 50, 560, 800);
+
+          context.drawImage(sticker, $('#sticker_w').val(), $('#sticker_h').val(), sticker.width/ $('#size_sticker').val(), sticker.height/$('#size_sticker').val());
+          context.font = $('#size_title').val() +"px Pacifico";
+          context.fillStyle = $('#color_title').val();
+          context.fillText($('#title').val(), $('#title_w').val(), $('#title_h').val());
+
+          context.font = $('#size_ig').val()+"px Pacifico";
+          context.fillStyle = $('#color_ig').val();
+          context.fillText($('#ig').val(), $('#ig_w').val(), $('#ig_h').val());
+        }
+    });
+    function download_image(){
+        var canvas = document.getElementById('myCanvas');
+        image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+        var link = document.createElement('a');
+        link.download = "image-notes-paper.png";
+        link.href = image;
+        link.click();
+    }
+</script>
+</body>
+</html>
