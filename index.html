@@ -8,7 +8,7 @@
     <meta property="og:description" content="Custom Take Notes Paper - @studywithmeomeo">
     <meta property="og:image" content="https://havi20.github.io/assets/img/preview.jpg">
     <meta property="og:url" content="https://havi20.github.io">
-    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -20,11 +20,14 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163569229-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-      gtag('config', 'UA-163569229-1');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163569229-1');
     </script>
 </head>
 
@@ -39,21 +42,21 @@
     <div role="main" class="container p-0">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalFollow" style="display: none;" id="button_modal">A</button>
         <div class="modal fade" id="ModalFollow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                Nếu thấy hay thì các bạn <a href="https://www.instagram.com/studywithmeomeo/" target="_blank" style="font-family: 'Pacifico'; color: #fd8888;">Follow</a> để ủng hộ mình nhé!
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal" style="background-color: #fd8888;border-color: #fd8888;">Close</button>
-              </div>
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Nếu thấy hay thì các bạn <a href="https://www.instagram.com/studywithmeomeo/" target="_blank" style="font-family: 'Pacifico'; color: #fd8888;">Follow</a> để ủng hộ mình nhé!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" style="background-color: #fd8888;border-color: #fd8888;">Close</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
         <div class="row">
             <div class="col-md-6">
@@ -167,6 +170,29 @@
                 <canvas id="myCanvas" width="602px" height="877px" style="border: 1px solid #000;"></canvas>
                 <canvas id="myCanvashigh" width="2480px" height="3508px" style="border: 1px solid #000;display: none;"></canvas>
             </div>
+            <div class="col-md-12">
+                <br>
+                <br>
+                <br>
+                <center><h2 style="font-family: 'Pacifico'; color: #fd8888;">Example</h2></center>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="assets/album/1.jpg" alt="Image 1">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="assets/album/2.jpg" alt="Image 2">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="assets/album/3.jpg" alt="Image 3">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script type="text/javascript">
@@ -177,11 +203,11 @@
 
         $('#apply').change(function() {
 
-            if($('#select_bg').val() == 'image'){
+            if ($('#select_bg').val() == 'image') {
                 $('#background').show();
                 $('#color_bg').hide();
-            }else{
-                $('#background').hide();
+            } else {
+                $('#background').hide();a
                 $('#color_bg').show();
             }
 
@@ -206,9 +232,9 @@
             };
 
             loadImages(sources, function(images) {
-                        /* Image download */
+                /* Image download */
                 context2.drawImage(images.img_bg, 0, 0, 2480, 3508);
-                if($('#select_bg').val() == 'color'){
+                if ($('#select_bg').val() == 'color') {
                     context2.fillStyle = $('#color_bg').val();
                     context2.fillRect(0, 0, 2480, 3508);
                 }
@@ -216,18 +242,17 @@
                 context2.strokeStyle = $('#color_border').val();
                 context2.lineWidth = 8;
                 context2.strokeRect(120, 200, 2240, 3200);
-                context2.drawImage(sticker, $('#sticker_w').val()*4, $('#sticker_h').val()*4, (sticker.width / $('#size_sticker').val())*4,(sticker.height / $('#size_sticker').val())*4);
-                context2.font = $('#size_title').val() *4 + "px Pacifico";
+                context2.drawImage(sticker, $('#sticker_w').val() * 4, $('#sticker_h').val() * 4, (sticker.width / $('#size_sticker').val()) * 4, (sticker.height / $('#size_sticker').val()) * 4);
+                context2.font = $('#size_title').val() * 4 + "px Pacifico";
                 context2.fillStyle = $('#color_title').val();
-                context2.fillText($('#title').val(), $('#title_w').val()*4, $('#title_h').val()*4);
-                context2.font = $('#size_ig').val()*4 + "px Pacifico";
+                context2.fillText($('#title').val(), $('#title_w').val() * 4, $('#title_h').val() * 4);
+                context2.font = $('#size_ig').val() * 4 + "px Pacifico";
                 context2.fillStyle = $('#color_ig').val();
-                context2.fillText($('#ig').val(), $('#ig_w').val()*4, $('#ig_h').val()*4);
+                context2.fillText($('#ig').val(), $('#ig_w').val() * 4, $('#ig_h').val() * 4);
 
-
-                    /* Image preview */
+                /* Image preview */
                 context.drawImage(images.img_bg, 0, 0, 620, 877);
-                if($('#select_bg').val() == 'color'){
+                if ($('#select_bg').val() == 'color') {
                     context.fillStyle = $('#color_bg').val();
                     context.fillRect(0, 0, 620, 877);
                 }
@@ -260,7 +285,7 @@
             var loadedImages = 0;
             var numImages = 0;
             for (var src in sources) {
-                if(sources[src] == ""){
+                if (sources[src] == "") {
                     numImages++;
                     console.log(sources[src]);
                 }
