@@ -243,13 +243,10 @@
             var canvas2 = $('#myCanvashigh');
             var context2 = canvas2.get(0).getContext("2d");
 
-            var sticker = new Image();
-            sticker.crossOrigin = "anonymous";
-            sticker.src = $('#sticker').val();
-
             var sources = {
                 img: 'assets/paper/' + $('#paper_color').val() + '.jpg',
-                img_bg: $('#background').val()
+                img_bg: $('#background').val(),
+                sticker : $('#sticker').val()
             };
 
             loadImages(sources, function(images) {
@@ -263,7 +260,7 @@
                 context2.strokeStyle = $('#color_border').val();
                 context2.lineWidth = 8;
                 context2.strokeRect(120, 200, 2240, 3200);
-                context2.drawImage(sticker, $('#sticker_w').val() * 4, $('#sticker_h').val() * 4, (sticker.width / $('#size_sticker').val()) * 4, (sticker.height / $('#size_sticker').val()) * 4);
+                context2.drawImage(images.sticker, $('#sticker_w').val() * 4, $('#sticker_h').val() * 4, (images.sticker.width / $('#size_sticker').val()) * 4, (images.sticker.height / $('#size_sticker').val()) * 4);
                 context2.font = $('#size_title').val() * 4 + "px Pacifico";
                 context2.fillStyle = $('#color_title').val();
                 context2.fillText($('#title').val(), $('#title_w').val() * 4, $('#title_h').val() * 4);
@@ -281,7 +278,7 @@
                 context.strokeStyle = $('#color_border').val();
                 context.lineWidth = 2;
                 context.strokeRect(30, 50, 560, 800);
-                context.drawImage(sticker, $('#sticker_w').val(), $('#sticker_h').val(), sticker.width / $('#size_sticker').val(), sticker.height / $('#size_sticker').val());
+                context.drawImage(images.sticker, $('#sticker_w').val(), $('#sticker_h').val(), images.sticker.width / $('#size_sticker').val(), images.sticker.height / $('#size_sticker').val());
                 context.font = $('#size_title').val() + "px Pacifico";
                 context.fillStyle = $('#color_title').val();
                 context.fillText($('#title').val(), $('#title_w').val(), $('#title_h').val());
