@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-colorpicker.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script src="assets/css/bootstrap-input-spinner.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163569229-1"></script>
     <script>
@@ -212,6 +213,7 @@
     <script type="text/javascript">
         $(function() {
             $('.color').colorpicker();
+            $("input[type='number']").inputSpinner();
         });
         $('#button_modal').click();
 
