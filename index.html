@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -15,6 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/3.2.0/js/bootstrap-colorpicker.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-colorpicker.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <script src="assets/css/bootstrap-input-spinner.js"></script>
@@ -60,7 +62,7 @@
             </div>
         </div> -->
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" data-aos="fade-right">
                 <div class="alert alert-danger" role="alert" style="color: #fffafa;background-color: #fd8888; border-color: #fd8888;">
                     <p><b>X</b>: Chiều ngang | <b>Y</b>: Chiều dọc</p>
                 </div>
@@ -171,11 +173,11 @@
                 <button onclick="download_image()" class="btn btn-danger" style="background-color: #fd8888;border-color: #fd8888;">Download Paper</button>
                 <i>(Nếu không nhấn download được. Click chuột phải vào ảnh preview để lưu)</i>
             </div>
-            <div class="col-md-6" id="canvasGroup">
+            <div class="col-md-6" id="canvasGroup" data-aos="fade-left">
                 <canvas id="myCanvas" width="602px" height="877px" style="border: 1px solid #000;"></canvas>
                 <canvas id="myCanvashigh" width="2480px" height="3508px" style="border: 1px solid #000;display: none;"></canvas>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12" data-aos="zoom-in">
                 <br>
                 <br>
                 <br>
@@ -198,7 +200,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 offset-md-3">
+            <div class="col-md-6 offset-md-3" data-aos="zoom-in">
                 <br>
                 <br>
                 <center><h2 style="font-family: 'Pacifico'; color: #fd8888;">Tutorial</h2></center>
@@ -215,10 +217,12 @@
         <a href="https://www.instagram.com/studywithmeomeo/" target="_blank" style="color: #fd8888;"><i class="fa fa-instagram" style="font-size: 20px"></i> <b> studywithmeomeo</b></a>
       </div>
     </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="text/javascript">
         $(function() {
             $('.color').colorpicker();
             $("input[type='number']").inputSpinner();
+            AOS.init();
         });
         // $('#button_modal').click();
 
