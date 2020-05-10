@@ -328,6 +328,9 @@
                 }
                 
                 context2.drawImage(images.sticker, $('#sticker_w').val() * 4, $('#sticker_h').val() * 4, (images.sticker.width / $('#size_sticker').val()) * 4, (images.sticker.height / $('#size_sticker').val()) * 4);
+                context2.drawImage(images.sticker2, $('#sticker_w2').val() * 4, $('#sticker_h2').val() * 4, (images.sticker2.width / $('#size_sticker2').val()) * 4, (images.sticker2.height / $('#size_sticker2').val()) * 4);
+                context2.drawImage(images.sticker3, $('#sticker_w3').val() * 4, $('#sticker_h3').val() * 4, (images.sticker3.width / $('#size_sticker3').val()) * 4, (images.sticker3.height / $('#size_sticker3').val()) * 4);
+
                 context2.font = $('#size_title').val() * 4 + "px Pacifico";
                 context2.fillStyle = $('#color_title').val();
                 context2.fillText($('#title').val(), $('#title_w').val() * 4, $('#title_h').val() * 4);
