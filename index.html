@@ -118,6 +118,7 @@
                             <input type="number" class="form-control" id="size_ig" value="13">
                         </div>
                     </div>
+
                     <br>
                     <div class="form-row">
                         <div class="form-group col-md-8">
@@ -157,12 +158,54 @@
                             <input type="number" class="form-control" id="size_sticker" value="3">
                         </div>
                     </div>
+                    <div id="more_sticker2" style="display: none;">
+                        <div class="form-group">
+                            <input type="text" id="sticker2" value="" class="form-control">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="ig_w"><i>X</i></label>
+                                <input type="number" class="form-control" id="sticker_w2" value="0">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="ig_h"><i>Y</i></label>
+                                <input type="number" class="form-control" id="sticker_h2" value="100">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="size_ig"><i>Size</i></label>
+                                <input type="number" class="form-control" id="size_sticker2" value="3">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="more_sticker3" style="display: none;">
+                        <div class="form-group">
+                            <input type="text" id="sticker3" value="" class="form-control">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="ig_w"><i>X</i></label>
+                                <input type="number" class="form-control" id="sticker_w3" value="0">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="ig_h"><i>Y</i></label>
+                                <input type="number" class="form-control" id="sticker_h3" value="200">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="size_ig"><i>Size</i></label>
+                                <input type="number" class="form-control" id="size_sticker3" value="3">
+                            </div>
+                        </div>
+                    </div>
+                    <input class="btn btn-outline-dark" type="button" id="button_more_sticker" value="Add More Sticker" />
+
+                    <br>
                     <br>
                     <div class="form-group">
                         <label><b style="font-family: 'Pacifico'; color: #fd8888;">Background</b> | Suggest: <a href="https://www.rawpixel.com/search/background?sort=curated&ratio=portrait&page=1" target="_blank" style="color: #fd8888;">RawPixel Background</a></label>
                         <select class="form-control" id="select_bg">
                             <option value="image">Image</option>
                             <option value="color">Color</option>
+                            <option value="none">None</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -232,7 +275,12 @@
             if ($('#select_bg').val() == 'image') {
                 $('#background').show();
                 $('#color_bg').hide();
-            } else {
+            } 
+            else if($('#select_bg').val() == "none"){
+                $('#background').hide();
+                $('#color_bg').hide();
+            }
+            else {
                 $('#background').hide();
                 $('#color_bg').show();
             }
@@ -251,7 +299,9 @@
             var sources = {
                 img: 'assets/paper/' + $('#paper_color').val() + '.jpg',
                 img_bg: $('#background').val(),
-                sticker : $('#sticker').val()
+                sticker : $('#sticker').val(),
+                sticker2 : $('#sticker2').val(),
+                sticker3 : $('#sticker3').val()
             };
 
             loadImages(sources, function(images) {
@@ -261,10 +311,15 @@
                     context2.fillStyle = $('#color_bg').val();
                     context2.fillRect(0, 0, 2480, 3508);
                 }
-                context2.drawImage(images.img, 120, 200, 2240, 3200);
-                context2.strokeStyle = $('#color_border').val();
-                context2.lineWidth = 8;
-                context2.strokeRect(120, 200, 2240, 3200);
+                if($('#select_bg').val() == "none"){
+                    context2.drawImage(images.img, 0, 0, 2480, 3508);
+                }else{
+                    context2.drawImage(images.img, 120, 200, 2240, 3200);
+                    context2.strokeStyle = $('#color_border').val();
+                    context2.lineWidth = 8;
+                    context2.strokeRect(120, 200, 2240, 3200);
+                }
+                
                 context2.drawImage(images.sticker, $('#sticker_w').val() * 4, $('#sticker_h').val() * 4, (images.sticker.width / $('#size_sticker').val()) * 4, (images.sticker.height / $('#size_sticker').val()) * 4);
                 context2.font = $('#size_title').val() * 4 + "px Pacifico";
                 context2.fillStyle = $('#color_title').val();
@@ -279,11 +334,19 @@
                     context.fillStyle = $('#color_bg').val();
                     context.fillRect(0, 0, 620, 877);
                 }
-                context.drawImage(images.img, 30, 50, 560, 800);
-                context.strokeStyle = $('#color_border').val();
-                context.lineWidth = 2;
-                context.strokeRect(30, 50, 560, 800);
+                if($('#select_bg').val() == "none"){
+                    context.drawImage(images.img, 0, 0, 620, 877);
+                }else{
+                    context.drawImage(images.img, 30, 50, 560, 800);
+                    context.strokeStyle = $('#color_border').val();
+                    context.lineWidth = 2;
+                    context.strokeRect(30, 50, 560, 800);
+                }
+
                 context.drawImage(images.sticker, $('#sticker_w').val(), $('#sticker_h').val(), images.sticker.width / $('#size_sticker').val(), images.sticker.height / $('#size_sticker').val());
+                context.drawImage(images.sticker2, $('#sticker_w2').val(), $('#sticker_h2').val(), images.sticker2.width / $('#size_sticker2').val(), images.sticker2.height / $('#size_sticker2').val());
+                context.drawImage(images.sticker3, $('#sticker_w3').val(), $('#sticker_h3').val(), images.sticker3.width / $('#size_sticker3').val(), images.sticker3.height / $('#size_sticker3').val());
+
                 context.font = $('#size_title').val() + "px Pacifico";
                 context.fillStyle = $('#color_title').val();
                 context.fillText($('#title').val(), $('#title_w').val(), $('#title_h').val());
@@ -292,6 +355,19 @@
                 context.fillStyle = $('#color_ig').val();
                 context.fillText($('#ig').val(), $('#ig_w').val(), $('#ig_h').val());
             });
+        });
+        
+        $('#button_more_sticker').click(function(){
+            //alert('OK');
+            if($('#more_sticker2').is(':visible') == false){
+                $('#more_sticker2').show();
+            }
+            else if($('#more_sticker2').is(':visible') == true && $('#more_sticker3').is(':visible') == true){
+                alert('Maximum 3 sticker');
+            }
+            else{
+                $('#more_sticker3').show();
+            }
         });
 
         function download_image() {
